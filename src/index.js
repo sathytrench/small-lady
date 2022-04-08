@@ -1,18 +1,23 @@
 import Phaser from 'phaser';
 import config from './config/config';
-import Scene1 from './scenes/Scene1';
+import BaseScene from './scenes/BaseScene';
+import MapScene from './scenes/MapScene';
+import RoomScene from './scenes/RoomScene';
 
 class Game extends Phaser.Game {
     constructor() {
       super(config);
   
-      this.scene.add('Scene1', Scene1);
-      
-      this.scene.start('Scene1');
+      this.scene.add('BaseScene', BaseScene);
+      this.scene.add('MapScene', MapScene);
+      this.scene.add('RoomScene', RoomScene);
+      this.scene.start('MapScene');
     }
   }
   
   window.onload = function () {
     window.game = new Game();
   }
-  
+
+  // intro text - library scene - map scene <--> room scene
+  // base scene will have box for itinerary and box for map/room asset
