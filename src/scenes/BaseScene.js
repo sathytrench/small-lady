@@ -15,6 +15,7 @@ export default class BaseScene extends Phaser.Scene {
     //sprites 
     //player
     this.load.image('player', 'assets/player.png');
+    this.load.image('singleRoom', 'assets/singleRoom.png')
   }
 
   //////////////////////////CLASS METHODS/////////////////////////////////////

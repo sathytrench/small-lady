@@ -5,7 +5,7 @@ export default {
         arcade: {
           gravity: { y: 0, x: 0 },
         },
-        debug: false,    
+        debug: true,    
       }
     },
     type: Phaser.AUTO,  

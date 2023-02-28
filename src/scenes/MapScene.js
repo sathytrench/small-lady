@@ -17,11 +17,15 @@ export default class MapScene extends BaseScene {
       this.createInventory();
       this.createMap();
       this.createPlayer(this.playerPosition.x, this.playerPosition.y);
+
+      //KEYBOARD MANAGER
+      this.cursors = this.input.keyboard.createCursorKeys();
     }
 
     ///////////////////////////////////////////UPDATE////////////////////////////////////////////////////
 
     update() {
+      this.player.update(this.cursors, this.walkSound);
     }
   }
 

@@ -8,37 +8,37 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this);
   }
 
-  updateMovement(cursors, jumpSound) {
+  updateMovement(cursors, walkSound) {
     // Move left
-    if (cursors.left.isDown) {
+    if (cursors.left.isDown && !cursors.up.isDown && !cursors.down.isDown) {
       this.setVelocityX(-160);
-      this.anims.play('left', true);
+      //this.anims.play('left', true);
     }
     // Move right
-    else if (cursors.right.isDown) {
+    else if (cursors.right.isDown && !cursors.up.isDown && !cursors.down.isDown) {
       this.setVelocityX(160);
-      this.anims.play('right', true);
+      //this.anims.play('right', true);
     }
     // Move up
-    if (cursors.up.isDown) {
-      this.setVelocityX(-160);
-      this.anims.play('left', true);
+    else if (cursors.up.isDown && !cursors.left.isDown && !cursors.right.isDown) {
+      this.setVelocityY(-160);
+      //this.anims.play('left', true);
     }
     // Move down
-    else if (cursors.down.isDown) {
-      this.setVelocityX(160);
-      this.anims.play('right', true);
+    else if (cursors.down.isDown && !cursors.left.isDown && !cursors.right.isDown) {
+      this.setVelocityY(160);
+      //this.anims.play('right', true);
     }
     
     // Neutral (no movement)
     else {
-      this.setVelocityX(0);
-      this.anims.play('turn');
+      this.setVelocity(0, 0);
+      //this.anims.play('turn');
     }
-    if (cursors.up.isDown && this.body.touching.down){
-      this.setVelocityY(-330);
-      jumpSound.play();
-    }
+    // if (cursors.up.isDown && this.body.touching.down){
+    //   this.setVelocityY(-330);
+    //   jumpSound.play();
+    // }
   }
 
   // Check which controller button is being pushed and execute movement & animation

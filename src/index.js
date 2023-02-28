@@ -3,6 +3,7 @@ import config from './config/config';
 import BaseScene from './scenes/BaseScene';
 import MapScene from './scenes/MapScene';
 import RoomScene from './scenes/RoomScene';
+import Squares from './scenes/Squares';
 
 class Game extends Phaser.Game {
     constructor() {
@@ -11,7 +12,8 @@ class Game extends Phaser.Game {
       this.scene.add('BaseScene', BaseScene);
       this.scene.add('MapScene', MapScene);
       this.scene.add('RoomScene', RoomScene);
-      this.scene.start('MapScene');
+      this.scene.add('Squares', Squares);
+      this.scene.start('Squares');
     }
   }
   
