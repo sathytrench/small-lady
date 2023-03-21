@@ -5,6 +5,10 @@ export default class BaseScene extends Phaser.Scene {
     super(name);
   }
 
+  inventory = [];
+  inventoryString = 'INVENTORY:';
+  messageString = '';
+
   //////////////////////////////////PRELOAD//////////////////////////////////////////////////////////////
     
   preload() {  
@@ -14,7 +18,7 @@ export default class BaseScene extends Phaser.Scene {
     this.load.image('room', 'assets/room.png');
     //sprites 
     //player
-    this.load.image('player', 'assets/player.png');
+    this.load.spritesheet('raspberry', 'assets/raspberrySpritesheet.png', { frameWidth: 32, frameHeight: 32 });
     this.load.image('singleRoom', 'assets/singleRoom.png')
   }
 
@@ -22,6 +26,11 @@ export default class BaseScene extends Phaser.Scene {
 
   createInventory() {
     this.add.image(115, 300, 'inventory');
+    this.inventoryText = this.add.text(40, 40, this.inventoryString);
+  }
+
+  createMessageText() {
+    this.messageText = this.add.text(430, 80, this.messageString, { fill: 'black', backgroundColor: 'white' });
   }
 
   createMap() {
@@ -33,6 +42,6 @@ export default class BaseScene extends Phaser.Scene {
   }
 
   createPlayer(x, y) {
-    this.player = new Player(this, x, y, 'player');
+    this.player = new Player(this, x, y, 'raspberry');
   }
 }
